@@ -15,7 +15,7 @@ env:
   AZURE_WEBAPP_NAME: hello-world-flask-app # set this to your application's name
   WORKING_DIRECTORY: '.'         # set this to the path to your path of working directory inside github repository, defaults to the repository root
   PYTHON_VERSION: '3.8' 
-  STARTUP_COMMAND: ''           # set this to the startup command required to start the gunicorn server. default it is empty
+  STARTUP_COMMAND: 'python3 main.py'           # set this to the startup command required to start the gunicorn server. default it is empty
 
 # name: Build and deploy Python app
 jobs:
