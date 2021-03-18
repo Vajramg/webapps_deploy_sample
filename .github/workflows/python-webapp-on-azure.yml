@@ -53,7 +53,7 @@ jobs:
     with:
      creds: ${{ secrets.AZURE_CREDENTIALS }}
      app-name: ${{ env.AZURE_WEBAPP_NAME }}
-     resource-group-name: ${{ env.AZURE_RESOURCE_GROUP_NAME }
+     resource-group-name: ${{ env.AZURE_RESOURCE_GROUP_NAME }}
      package: ${{ env.WORKING_DIRECTORY }}
      startup-command: ${{ env.STARTUP_COMMAND }}
   # Azure logout
