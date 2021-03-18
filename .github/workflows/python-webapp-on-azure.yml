@@ -16,6 +16,7 @@ env:
   WORKING_DIRECTORY: '.'         # set this to the path to your path of working directory inside github repository, defaults to the repository root
   PYTHON_VERSION: '3.8' 
   STARTUP_COMMAND: ''           # set this to the startup command required to start the gunicorn server. default it is empty
+  AZURE_RESOURCE_GROUP_NAME: 'gaTest'
 
 # name: Build and deploy Python app
 jobs:
@@ -50,7 +51,9 @@ jobs:
   # deploy web app
   - uses: balaga-gayatri/webapps-deploy@master
     with:
+     creds: ${{ secrets.AZURE_CREDENTIALS }}
      app-name: ${{ env.AZURE_WEBAPP_NAME }}
+     resource-group-name: ${{ env.AZURE_RESOURCE_GROUP_NAME }
      package: ${{ env.WORKING_DIRECTORY }}
      startup-command: ${{ env.STARTUP_COMMAND }}
   # Azure logout
