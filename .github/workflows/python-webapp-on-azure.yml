@@ -53,7 +53,7 @@ jobs:
      mask-inputs: false
      general-settings-json: '{"linuxFxVersion": "PYTHON|${{ env.PYTHON_VERSION }}"}' #'General configuration settings as Key Value pairs'
   # deploy web app
-  - uses: azure/webapps-deploy@v2
+  - uses: balaga-gayatri/webapps-deploy@message_issue
     with:
      creds: ${{ secrets.AZURE_CREDENTIALS }}
      app-name: ${{ env.AZURE_WEBAPP_NAME }}
