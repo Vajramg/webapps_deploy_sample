@@ -23,6 +23,8 @@ jobs:
  build-and-deploy:
   runs-on: ubuntu-latest
   steps:
+   - name: checking env variables 
+      run: echo "commit message $GITHUB_CONTEXT.event.commits.message"
   # checkout the repo 
   - uses: actions/checkout@master
   # setup python
