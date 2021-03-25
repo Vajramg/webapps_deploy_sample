@@ -24,7 +24,7 @@ jobs:
   runs-on: ubuntu-latest
   steps:
    - name: checking env variables 
-      run: echo "commit message $GITHUB_CONTEXT "
+     run: echo "commit message $GITHUB_CONTEXT "
   # checkout the repo 
   - uses: actions/checkout@master
   # setup python
