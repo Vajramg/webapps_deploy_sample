@@ -24,7 +24,9 @@ jobs:
   runs-on: ubuntu-latest
   steps:
   - name: checking env variables 
-    run: echo "commit message $GITHUB_CONTEXT "
+    env: 
+       GITHUB_MESSAGE : ${{ toJSON(github).event.commits.messages }}
+    run: echo "$GITHUB_MESSAGE "
   # checkout the repo 
   - uses: actions/checkout@master
   # setup python
