@@ -23,10 +23,6 @@ jobs:
  build-and-deploy:
   runs-on: ubuntu-latest
   steps:
-  - name: checking env variables 
-    env: 
-       GITHUB_MESSAGE : ${{ toJSON(github.event.head_commit.message) }}
-    run: echo "$GITHUB_MESSAGE"
   # checkout the repo 
   - uses: actions/checkout@master
   # setup python
@@ -54,8 +50,6 @@ jobs:
      general-settings-json: '{"linuxFxVersion": "PYTHON|${{ env.PYTHON_VERSION }}"}' #'General configuration settings as Key Value pairs'
   # deploy web app  balaga-gayatri/webapps-deploy@message_issue azure/webapps-deploy@v2
   - uses: azure/webapps-deploy@v2
-    env:
-      GITHUB_MESSAGE : ${{ toJSON(github.event.head_commit.message) }}
     with:
      creds: ${{ secrets.AZURE_CREDENTIALS }}
      app-name: ${{ env.AZURE_WEBAPP_NAME }}
@@ -66,3 +60,8 @@ jobs:
   - name: logout
     run: |
      az logout
+
+#  - name: checking env variables 
+#     env: 
+#        GITHUB_MESSAGE : ${{ toJSON(github.event.head_commit.message) }}
+#     run: echo "$GITHUB_MESSAGE"
