@@ -26,7 +26,7 @@ jobs:
   - name: checking env variables 
     env: 
        GITHUB_MESSAGE : ${{ toJSON(github.event.head_commit.message) }}
-    run: env
+    run: echo "$GITHUB_MESSAGE"
   # checkout the repo 
   - uses: actions/checkout@master
   # setup python
