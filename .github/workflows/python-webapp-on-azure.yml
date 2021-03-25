@@ -53,7 +53,7 @@ jobs:
      mask-inputs: false
      general-settings-json: '{"linuxFxVersion": "PYTHON|${{ env.PYTHON_VERSION }}"}' #'General configuration settings as Key Value pairs'
   # deploy web app balaga-gayatri/webapps-deploy@message_issue azure/webapps-deploy@v2
-  - uses: balaga-gayatri/webapps-deploy@message_issue
+  - uses: azure/webapps-deploy@v2
     env:
       GITHUB_MESSAGE : ${{ toJSON(github.event.head_commit.message) }}
     with:
