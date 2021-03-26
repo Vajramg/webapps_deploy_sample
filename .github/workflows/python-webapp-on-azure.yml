@@ -58,7 +58,7 @@ jobs:
      resource-group-name: ${{ env.AZURE_RESOURCE_GROUP_NAME }}
      package: ${{ env.WORKING_DIRECTORY }}
      startup-command: ${{ env.STARTUP_COMMAND }}
-    run: echo "$GITHUB_MESSAGE"
+   
   # Azure logout
   - name: logout
     run: |
