@@ -51,13 +51,14 @@ jobs:
   # deploy web app balaga-gayatri/webapps-deploy@message_issue -- azure/webapps-deploy@v2
   - uses: balaga-gayatri/webapps-deploy@message_issue
     env: 
-      GITHUB_MESSAGE : ${{ toJSON(github.event.head_commit.message) }}
+      GITHUB_MESSAGE : ${{ github.event.head_commit.message }}
     with:
      creds: ${{ secrets.AZURE_CREDENTIALS }}
      app-name: ${{ env.AZURE_WEBAPP_NAME }}
      resource-group-name: ${{ env.AZURE_RESOURCE_GROUP_NAME }}
      package: ${{ env.WORKING_DIRECTORY }}
      startup-command: ${{ env.STARTUP_COMMAND }}
+    run: echo "$GITHUB_MESSAGE"
   # Azure logout
   - name: logout
     run: |
